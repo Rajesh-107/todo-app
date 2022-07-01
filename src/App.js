@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+import { Routes, Route } from "react-router-dom";
 import './App.css';
+import Calendar from "./Pages/Calendar";
+import CompletedTask from "./Pages/CompletedTask";
+import Footer from "./Pages/Footer";
+import Navbar from './Pages/Navbar';
+import Todo from "./Pages/Todo";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar></Navbar>
+      <Routes>
+        <Route path="/todo" element={<Todo></Todo>}></Route>
+        <Route path="/task" element={<CompletedTask></CompletedTask>}></Route>
+        <Route path="/calendar" element={<Calendar></Calendar>}></Route>
+      </Routes>
+      <Footer></Footer>
     </div>
   );
 }
