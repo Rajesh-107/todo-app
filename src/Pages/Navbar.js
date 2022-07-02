@@ -47,6 +47,9 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
   <li class="nav-item pr-2">
     <Link to='/calendar' class="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0">Calendar</Link>
   </li>
+  <li class="nav-item pr-2">
+    <Link to='/myalltodo' class="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0">My ALl todo</Link>
+  </li>
  
 </ul>
 

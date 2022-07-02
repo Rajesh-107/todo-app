@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import todo from '../images/todo.png';
+import Alltodo from './Alltodo';
 
 
 const ToDo = () => {
     const [tasks, setTasks] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/addTask`, {
+        fetch(`https://conservative-smarties-98453.herokuapp.com/addTask`, {
             method: 'GET'
         })
             .then(res => res.json())
@@ -22,7 +23,7 @@ const ToDo = () => {
             event.currentTarget.value = "";
             console.log(task);
             const addTask = { task }
-            fetch(`http://localhost:5000/addTask`, {
+            fetch(`https://conservative-smarties-98453.herokuapp.com/addTask`, {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -62,14 +63,7 @@ const ToDo = () => {
                                 </form>
                                 <div>
                                     {
-                                        tasks.map(task => <>
-
-                                            <div class="form-check">
-                                                <input class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
-                                            </div> <div className='flex flex-row justify-between'><p>{task.task}</p><span><button><svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-400 hover:text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                                <path strokeLinecap="round" strokeLinejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                                            </svg></button></span></div></>)
-
+                                        tasks.map(alltask => <Alltodo alltask={alltask}></Alltodo>)
 
                                     }
                                 </div>
